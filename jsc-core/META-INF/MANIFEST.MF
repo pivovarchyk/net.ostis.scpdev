@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: jsc-core
+Bundle-SymbolicName: net.ostis.sc-core
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: jsc-core.jar,
+ libs/commons-collections-3.2.1.jar,
+ libs/commons-lang.jar,
+ libs/commons-logging.jar,
+ libs/log4j.jar
+Export-Package: net.ostis.sc.memory,
+ net.ostis.tgf
+Bundle-Vendor: OSTIS
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

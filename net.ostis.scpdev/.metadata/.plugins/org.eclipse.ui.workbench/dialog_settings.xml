@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="1025" key="dialogWidth"/>
+		<item value="526" key="dialogHeight"/>
+		<list key="orderedProviders">
+		</list>
+		<list key="textArray">
+		</list>
+		<list key="orderedElements">
+		</list>
+		<list key="textEntries">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="net.ostis.scpdev.wizards.new_sc_project" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="net.ostis.scpdev"/>
+		</list>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item value="584" key="DIALOG_WIDTH"/>
+		<item value="-271" key="DIALOG_Y_ORIGIN"/>
+		<item value="-22" key="DIALOG_X_ORIGIN"/>
+		<item value="647" key="DIALOG_HEIGHT"/>
+		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>

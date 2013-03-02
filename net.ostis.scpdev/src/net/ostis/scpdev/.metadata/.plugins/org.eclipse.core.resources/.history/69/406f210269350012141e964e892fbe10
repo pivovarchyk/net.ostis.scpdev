@@ -1,0 +1,14 @@
+#include "scp_keynodes.scsy"
+
+program(program_name,
+[[
+	"hello world"
+]],
+[{
+}])
+
+
+printNl
+return()
+
+end

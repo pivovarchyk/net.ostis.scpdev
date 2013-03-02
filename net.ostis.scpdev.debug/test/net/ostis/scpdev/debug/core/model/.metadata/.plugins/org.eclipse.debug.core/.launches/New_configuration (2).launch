@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="net.ostis.scpdev.debug.core.launchConfigurationType.ui">
+<stringAttribute key="net.ostis.scpdev.debug.ATTR_PROJECT" value="wave_find_path"/>
+<stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="${workspace_loc:/wave_find_path/fs_repo_src/lib/hello_world.m4scp}"/>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+</listAttribute>
+</launchConfiguration>
