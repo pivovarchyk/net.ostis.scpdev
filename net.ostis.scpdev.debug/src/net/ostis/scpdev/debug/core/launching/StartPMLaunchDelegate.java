@@ -24,9 +24,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import net.ostis.scpdev.ScpdevPlugin;
 import net.ostis.scpdev.debug.core.IDebugCoreConstants;
 import net.ostis.scpdev.debug.core.model.PMDebugTarget;
 import net.ostis.scpdev.external.ScCoreModule;
+import net.ostis.scpdev.ui.view.SCPDebuggerConsoleView;
 
 import org.apache.commons.lang3.Validate;
 import org.eclipse.core.resources.IProject;
@@ -41,6 +43,12 @@ import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.debug.core.model.IDebugTarget;
 import org.eclipse.debug.core.model.IProcess;
 import org.eclipse.debug.core.model.LaunchConfigurationDelegate;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IPerspectiveDescriptor;
+import org.eclipse.ui.IPerspectiveRegistry;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.WorkbenchException;
 
 /**
  * Launch start-pm utility with specified options.
@@ -63,7 +71,49 @@ public class StartPMLaunchDelegate extends LaunchConfigurationDelegate {
     @Override
     public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor)
             throws CoreException {
-        // создание списка строк для хранения аргументов
+		//переключим нужную перспективу
+		if (mode.equals(ILaunchManager.RUN_MODE))
+		{
+			Display.getDefault().asyncExec(new Runnable() {
+				
+				@Override
+				public void run()
+				{
+					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+							
+					try {
+						PlatformUI.getWorkbench().showPerspective("net.ostis.scpdev.perspectives.scpdev", window);
+					} catch (WorkbenchException e)
+					{
+						e.printStackTrace();
+					}
+				}
+			});
+		}
+		
+		if (mode.equals(ILaunchManager.DEBUG_MODE))
+		{
+			Display.getDefault().asyncExec(new Runnable() 
+			{
+				
+				@Override
+				public void run()
+				{
+					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+					try {
+						PlatformUI.getWorkbench().showPerspective("net.ostis.scpdev.perspectives.scpdevdebug", window);
+					} catch (WorkbenchException e)
+					{
+						e.printStackTrace();
+					}					
+				}
+			});
+		}		
+
+    	
+    	
+    	
+    	// создание списка строк для хранения аргументов
     	List<String> args = new LinkedList<String>();
 
         // добавляем в список аргументов путь к start-pm.exe
@@ -93,15 +143,21 @@ public class StartPMLaunchDelegate extends LaunchConfigurationDelegate {
 		String[] commandLine = (String[]) args.toArray(new String[args.size()]);
 		// создание нового процесса с заданной командной строкой
 		Process process = DebugPlugin.exec(commandLine, null);
+		if (mode.equals(ILaunchManager.DEBUG_MODE))
+			SCPDebuggerConsoleView.redirectStream(process.getInputStream());
+
 		// создание и возврат нового процесса
 		IProcess p = DebugPlugin.newProcess(launch, process, ScCoreModule.getStartPM());
 		// Создание и регистриция объекта IDebugTarget для запуска
 		if (mode.equals(ILaunchManager.DEBUG_MODE)) {
+			//SCPDebuggerConsoleView.redirectStream(process.getInputStream());
 			IDebugTarget target = new PMDebugTarget(launch, p);
 			launch.addDebugTarget(target);
 		}
-    }
+		
+		}					
 
+		
     private void addProgramRun(ILaunchConfiguration configuration, List<String> args) throws CoreException {
         String runMode = configuration.getAttribute(IDebugCoreConstants.ATTR_RUN_MODE, "");
 

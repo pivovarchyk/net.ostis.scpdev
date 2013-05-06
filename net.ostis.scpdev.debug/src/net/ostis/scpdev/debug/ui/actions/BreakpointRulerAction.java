@@ -127,7 +127,8 @@ public class BreakpointRulerAction extends AbstractBreakpointRulerAction {
 			// The map containing the marker attributes
 			final Map<String, Object> map = new HashMap<String, Object>();
 
-			map.put(IMarker.MESSAGE, "PM breakpoint");
+			map.put(IMarker.MESSAGE, "SCP Line Breakpoint: " + resource.getName() + " [line: "
+					+ lineNumber + "]");
 			map.put(IMarker.LINE_NUMBER, new Integer(lineNumber));
 			map.put(IBreakpoint.ENABLED, new Boolean(true));
 			map.put(IBreakpoint.ID, IDebugCoreConstants.ID_DEBUG_MODEL);
