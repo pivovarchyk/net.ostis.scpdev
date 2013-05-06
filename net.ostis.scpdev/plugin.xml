@@ -161,6 +161,12 @@
             id="net.ostis.scpdev.perspectives.scpdev"
             name="SCP">
       </perspective>
+      <perspective
+            class="net.ostis.scpdev.perspectives.SCPdevDebugPerspective"
+            icon="icons/scp_debug_perspective.png"
+            id="net.ostis.scpdev.perspectives.scpdevdebug"
+            name="SCPDebug">
+      </perspective>
    </extension>
 
    <extension
@@ -238,5 +244,30 @@ ${cursor}
       </template>
 
     </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="debug"
+            class="net.ostis.scpdev.ui.view.SCPBreakpointView"
+            id="net.ostis.scpdev.SCPBreakPointView"
+            name="SCPBreakPointView"
+            restorable="true">
+      </view>
+      <view
+            category="debug"
+            class="net.ostis.scpdev.ui.view.SCPDebuggerConsoleView"
+            icon="icons/debug_console.png"
+            id="net.ostis.scpdev.SCPDebuggerConsoleView"
+            name="SCPDebuggerConsoleView"
+            restorable="true">
+      </view>
+      <view
+            category="debug"
+            class="net.ostis.scpdev.ui.view.SCPStackTraceView"
+            id="net.ostis.scpdev.SCPStackTraceView"
+            name="SCPStackTrace"
+            restorable="true">
+      </view>
+   </extension>
 
 </plugin>

@@ -24,6 +24,7 @@ import net.ostis.scpdev.editors.IScTextEditor;
 import net.ostis.scpdev.editors.scs.SCsDocumentProvider;
 
 import org.eclipse.jface.text.source.ISourceViewer;
+import org.eclipse.jface.text.source.IVerticalRuler;
 import org.eclipse.ui.editors.text.TextEditor;
 
 /**
@@ -47,6 +48,12 @@ public class M4ScpSourceEditor extends TextEditor implements IScTextEditor {
     @Override
     public ISourceViewer getScSourceViewer() {
         return getSourceViewer();
+    }
+    
+    @Override
+    public IVerticalRuler getScVerticalRuler()
+    {
+    	return getVerticalRuler();
     }
 
 }
