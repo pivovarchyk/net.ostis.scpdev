@@ -129,21 +129,6 @@
 
     <!--добавление пунктов меню и панели инструментов в редактор. -->
     <!-- Нет класса org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate-->
-    <extension point="org.eclipse.ui.editorActions">
-
-        <editorContribution
-            targetID="net.ostis.scpdev.editors.m4scp_editor"
-            id="#TextRulerContext">
-
-            <action
-                label="Not Used"
-                class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
-                actionID="RulerDoubleClick"
-                id="net.ostis.scpdev.debug.ui.actions.RulerToggleBreakpointActionDelegate"/>
-
-        </editorContribution>
-
-    </extension>
 
     <!--добавление всплывающего меню  -->
     <!-- Нет класса org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate-->
@@ -152,13 +137,13 @@
         <viewerContribution
             targetID="#TextRulerContext"
             id="net.ostis.scpdev.debug.ui.RulerPopupActions">
+           <action
+                 class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
+                 id="net.ostis.scpdev.debug.ToggleBreakpoint"
+                 label="Toggle Breakpoint"
+                 menubarPath="additions">
+           </action>
 
-            <action
-                label="Toggle Breakpoint"
-                class="org.eclipse.debug.ui.actions.RulerToggleBreakpointActionDelegate"
-                menubarPath="additions"
-                id="example.rulerContextMenu.toggleBreakpointAction">
-            </action>
 
         </viewerContribution>
 
@@ -171,7 +156,7 @@
          		name="SC"/> 
             <view
                 name="SC Memory View"
-		        category="SC Memory"                 
+		        category="SC"                 
                 class="net.ostis.scpdev.debug.ui.views.SCMemoryView"
                 id="net.ostis.scpdev.debug.ui.views.SCMemoryView" />
 
@@ -240,6 +225,5 @@
             autoOpen="true" />
 
     </extension>
-
 
 </plugin>

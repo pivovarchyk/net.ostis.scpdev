@@ -20,6 +20,10 @@
 package net.ostis.scpdev.m4scp.editors;
 
 import java.io.ByteArrayOutputStream;
+import org.eclipse.debug.ui.actions.ToggleBreakpointAction;
+import net.ostis.scpdev.debug.ui.actions.BreakpointRulerAction;
+import net.ostis.scpdev.debug.ui.actions.EnableDisableBreakpointRulerAction;
+
 
 import net.ostis.scpdev.builder.M4ScpFileBuilder;
 import net.ostis.scpdev.editors.IScTextEditor;
@@ -41,17 +45,22 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.text.Position;
 import org.eclipse.jface.text.source.IAnnotationModel;
 import org.eclipse.jface.text.source.ISourceViewer;
+import org.eclipse.jface.text.source.IVerticalRuler;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.editors.text.TextEditor;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.IGotoMarker;
@@ -86,6 +95,13 @@ public class M4ScpMultiPageEditor extends MultiPageEditorPart implements IResour
     @Override
     public ISourceViewer getScSourceViewer() {
         return m4scpEditor.getScSourceViewer();
+    }
+    
+    
+    @Override
+    public IVerticalRuler getScVerticalRuler()
+    {
+    	return m4scpEditor.getScVerticalRuler();
     }
 
     private class InternalM4ScpTextEditor extends M4ScpSourceEditor {
@@ -123,7 +139,12 @@ public class M4ScpMultiPageEditor extends MultiPageEditorPart implements IResour
         try {
             m4scpEditor = new InternalM4ScpTextEditor();
             int index = addPage(m4scpEditor, getEditorInput());
-            setPageText(index, "M4SCP source code");
+            setPageText(index, "M4SCP source code");       
+            IAction actionRulerDbClick = new BreakpointRulerAction(m4scpEditor, m4scpEditor.getScVerticalRuler());
+            m4scpEditor.setAction("RulerDoubleClick", actionRulerDbClick);
+            IAction actionRulerClick = new EnableDisableBreakpointRulerAction(m4scpEditor, m4scpEditor.getScVerticalRuler());
+            m4scpEditor.setAction("RulerClick", actionRulerClick);
+            
         } catch (PartInitException e) {
             ErrorDialog.openError(getSite().getShell(), "Error creating nested text editor", null, e.getStatus());
         }

@@ -20,12 +20,16 @@
 package net.ostis.scpdev.editors;
 
 import org.eclipse.jface.text.source.ISourceViewer;
+import org.eclipse.jface.text.source.IVerticalRuler;
 
 /**
  * @author Dmitry Lazurkin
+ * @modified Eugene Kharkunov
  */
 public interface IScTextEditor {
 
     public ISourceViewer getScSourceViewer();
+    
+    public IVerticalRuler getScVerticalRuler();
 
 }

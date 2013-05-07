@@ -23,6 +23,7 @@ import net.ostis.scpdev.editors.ColorManager;
 import net.ostis.scpdev.editors.IScTextEditor;
 
 import org.eclipse.jface.text.source.ISourceViewer;
+import org.eclipse.jface.text.source.IVerticalRuler;
 import org.eclipse.ui.editors.text.TextEditor;
 
 /**
@@ -53,6 +54,12 @@ public class SCsSourceEditor extends TextEditor implements IScTextEditor {
     @Override
     public ISourceViewer getScSourceViewer() {
         return getScSourceViewer();
+    }
+    
+    @Override
+    public IVerticalRuler getScVerticalRuler()
+    {
+    	return getScVerticalRuler();
     }
 
 }
