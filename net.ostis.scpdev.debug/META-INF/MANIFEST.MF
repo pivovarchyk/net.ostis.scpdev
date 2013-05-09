@@ -20,13 +20,13 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jface.text,
  org.eclipse.ui.console,
  org.eclipse.ui.editors,
- net.ostis.scpdev.m4scp,
  net.ostis.sc-core;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: net.ostis.scpdev.debug.core,
  net.ostis.scpdev.debug.core.launching,
- net.ostis.scpdev.debug.core.model
+ net.ostis.scpdev.debug.core.model,
+ net.ostis.scpdev.debug.ui.actions
 Plugin-Class: net.ostis.scpdev.debug.ScpdevDebugPlugin
 Import-Package: org.eclipse.compare,
  org.eclipse.gef.ui.parts
