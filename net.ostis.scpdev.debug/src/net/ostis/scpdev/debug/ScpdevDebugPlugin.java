@@ -21,8 +21,11 @@ package net.ostis.scpdev.debug;
 
 import java.util.Properties;
 
+import net.ostis.scpdev.debug.core.BreakpointListener;
+
 import org.apache.log4j.PropertyConfigurator;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.debug.core.DebugPlugin;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -75,6 +78,7 @@ public class ScpdevDebugPlugin extends Plugin {
         Properties props = new Properties();
         props.load(getClass().getResourceAsStream("/log4j.properties"));
         PropertyConfigurator.configure(props);
+        DebugPlugin.getDefault().getBreakpointManager().addBreakpointListener(new BreakpointListener());
     }
 
     /* (non-Javadoc)
