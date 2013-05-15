@@ -249,6 +249,7 @@ ${cursor}
       <view
             category="debug"
             class="net.ostis.scpdev.ui.view.SCPBreakpointView"
+            icon="icons/breakpointView.png"
             id="net.ostis.scpdev.SCPBreakPointView"
             name="SCPBreakPointView"
             restorable="true">
@@ -264,6 +265,7 @@ ${cursor}
       <view
             category="debug"
             class="net.ostis.scpdev.ui.view.SCPStackTraceView"
+            icon="icons/stackTraceView.png"
             id="net.ostis.scpdev.SCPStackTraceView"
             name="SCPStackTrace"
             restorable="true">
