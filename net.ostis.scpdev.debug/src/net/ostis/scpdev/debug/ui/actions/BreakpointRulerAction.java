@@ -25,10 +25,12 @@ import java.util.List;
 import java.util.Map;
 
 import net.ostis.scpdev.debug.core.IDebugCoreConstants;
+import net.ostis.scpdev.debug.core.model.M4SCPUtils;
 import net.ostis.scpdev.debug.core.model.SCPLineBreakpoint;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRunnable;
@@ -115,13 +117,12 @@ public class BreakpointRulerAction extends AbstractBreakpointRulerAction {
 		try {
 			if (lineNumber < 0)
 				return;
+//				document.getLineInformation(lineNumber - 1);
+			IResource resourceEditor = (IResource) textEditor.getEditorInput().getAdapter(IResource.class);
+			String programName = M4SCPUtils.getProgramNameFromLine((IFile) resourceEditor, lineNumber + 1);
+			if (programName ==null)
+				return;
 
-			// just to validate it
-			try {
-				document.getLineInformation(lineNumber - 1);
-			} catch (Exception e) {
-				return; // ignore
-			}
 			final IResource resource = getResourceForDebugMarkers(textEditor);
 
 			// The map containing the marker attributes
