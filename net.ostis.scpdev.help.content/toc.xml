@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="SCP Development User Guide" topic="html/toc.html">
+   <topic label="Начало работы">
+      <anchor id="gettingstarted"/>
+   </topic>
+   <topic label="Языки представления знаний">
+      <anchor id="knowledgelanguage"/>
+   </topic>
+   <topic label="Примеры программ">
+      <anchor id="samples"/>
+   </topic>
+   <topic label="Ссылки">
+      <anchor id="reference"/>
+   </topic>
+</toc>

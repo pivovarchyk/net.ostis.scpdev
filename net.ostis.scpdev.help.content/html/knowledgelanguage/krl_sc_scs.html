@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//RU">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<title>SCs</title>
+</head>
+
+<body>
+<h2>SCs</h2>
+<p align="justify">SCs-код - строковый линейный вариант представления SC-кода. Предназначен для представления sc-графов (текстов sc-кода) в виде последовательностей символов, которые могут быть отредактированы как при помощи стандартных текстовых редакторов, так и при помощи специализированного sc.s-редактора. Тектсы SCs-кода содержатся в файлах с  расширением scs.</p>
+ 
+<p align="justify">Текст на языке SCs состоит из sc.s-предложений. Каждое sc.s-предложение должно заканчиваться точкой с запятой «;».</p>
+
+<p align="justify">Примеры SCs-предложений:</p> 
+
+<p align="justify">/* Это комментарий */<br> 
+element; // Это тоже комментарий <br>
+Приведенный SCs-текст соответствует константному sc-элементу неопределенного типа с идентификатором element. Данный SCs-текст семантически эквивалентен следующему SCg-тексту:<br>
+<img src="../images/krl_sc_scs_el1.jpg"></p>
+
+<p align="justify">node -> element;<br> 
+Данный SCs-текст семантически эквивалентен следующему SCg-тексту:<br>
+<img src="../images/krl_sc_scs_el2.jpg"></p>
+
+<p align="justify">node1, node2 -> element1, attr1_: attr2_: element2;<br> 
+Данный SCs-текст семантически эквивалентен следующему SCg-тексту:<br>
+<img src="../images/krl_sc_scs_el3.jpg"></p>
+
+<p align="justify">Для того чтобы задавать более удобно множества, можно использовать следующую запись:<br>  
+{a, attr1_: b, attr1_: attr3_: c};<br>  
+Данный SCs-текст семантически эквивалентен следующему SCg-тексту:<br>
+<img src="../images/krl_sc_scs_el4.jpg"></p>
+   
+</body>
+</html>

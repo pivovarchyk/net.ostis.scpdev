@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Языки представления знаний" link_to="toc.xml#knowledgelanguage"> 
+	<topic label="Sc-код"  href="html/knowledgelanguage/krl_sc.html"> 
+		<topic href="html/knowledgelanguage/krl_sc_scs.html" label="SCs"/>
+  		<topic href="html/knowledgelanguage/krl_sc_scg.html" label="SCg"/>
+ 	</topic>
+	<topic href="html/knowledgelanguage/krl_scp.html" label="SCP">
+		<topic label="Структура scp-программы" href="html/knowledgelanguage/krl_scp_program.html" /> 
+		<topic label="Операторы языка SCP" href="html/knowledgelanguage/krl_scp_operator.html" /> 
+	</topic> 
+</toc>
